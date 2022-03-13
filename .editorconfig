@@ -1,0 +1,43 @@
+# 当前配置文件是否为根配置，是。
+root = true
+
+# 仅对当前项目的 kotlin 文件生效
+[*.kt]
+# 1. 字符编码集采用 UTF-8
+charset = utf-8
+# 2. 缩进时使用 空格 代替 Tab
+indent_style = space
+# 3. 设置缩进大小为 2 个空格
+indent_size = 2
+# 4. 换行结束符采用 LF, 即回车并换行.
+end_of_line = lf
+# 5. 文件最后一行保持空行, 若无则在格式化时自动添加.
+insert_final_newline = true
+# 6. 文件每一行的末尾保持空白. 若存在非可见字符, 则自动清除.
+trim_trailing_whitespace = true
+# 7. 最大行宽 140
+max_line_length = 140
+
+
+# 仅对当前项目的 java 文件生效
+[*.java]
+# 1. 字符编码集采用 UTF-8
+charset = utf-8
+# 2. 缩进时使用 空格 代替 Tab
+indent_style = space
+# 3. 设置缩进大小为 4 个空格
+indent_size = 4
+# 4. 换行结束符采用 LF, 即回车并换行.
+end_of_line = lf
+# 5. 文件最后一行保持空行, 若无则在格式化时自动添加.
+insert_final_newline = true
+# 6. 文件每一行的末尾保持空白. 若存在非可见字符, 则自动清除.
+trim_trailing_whitespace = true
+# 7. 最大行宽 120
+max_line_length = 120
+
+[*.md]
+# MarkDown 语法中，空行含有特殊语义，此处避免在最后一行添加空行。
+insert_final_newline = false
+# MarkDown 语法中，尾部空格存在换行语义，此处避免删除其空格。
+trim_trailing_whitespace = false
