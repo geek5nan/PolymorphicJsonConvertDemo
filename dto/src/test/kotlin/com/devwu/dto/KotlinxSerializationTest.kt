@@ -39,7 +39,7 @@ class KotlinxSerializationTest {
     )
     val gamingRoom = GamingRoom(listOf(game1, game2))
     val jsonStr = json.encodeToString(gamingRoom)
-//    assert(jsonStr == """{"games":[{"type":"elden-ring","title":"艾尔登法环","platforms":["PlayStation","Xbox","PC"],"releaseAt":"2022-02-25"},{"type":"zelda","title":"塞尔达传说：旷野之息","platform":"Nintendo Switch","releaseAt":1488470400}]}""")
+    assert(jsonStr == """{"games":[{"type":"elden-ring","title":"艾尔登法环","platforms":["PlayStation","Xbox","PC"],"releaseAt":"2022-02-25"},{"type":"zelda","title":"塞尔达传说：旷野之息","platform":"Nintendo Switch","releaseAt":1488470400}]}""")
     println(jsonStr)
   }
 
