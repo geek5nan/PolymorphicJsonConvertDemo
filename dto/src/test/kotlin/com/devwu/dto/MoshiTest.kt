@@ -16,7 +16,7 @@ class MoshiTest {
     // Add a polymorphic adapter to moshi.
     val moshi = Moshi.Builder()
       .add(
-        PolymorphicJsonAdapterFactory.of(Game::class.java, "game")
+        PolymorphicJsonAdapterFactory.of(Game::class.java, "type")
           .withSubtype(Zelda::class.java, "zelda")
           .withSubtype(EldenRing::class.java, "elden-ring")
       )
@@ -38,13 +38,13 @@ class MoshiTest {
     )
     val gamingRoom = GamingRoom(listOf(game1, game2))
     val jsonStr = adapter.toJson(gamingRoom)
-    assert(jsonStr == """{"games":[{"game":"elden-ring","title":"艾尔登法环","platforms":["PlayStation","Xbox","PC"],"releaseAt":"2022-02-25"},{"game":"zelda","title":"塞尔达传说：旷野之息","platform":"Nintendo Switch","releaseAt":1488470400}]}""")
+    assert(jsonStr == """{"games":[{"type":"elden-ring","title":"艾尔登法环","platforms":["PlayStation","Xbox","PC"],"releaseAt":"2022-02-25"},{"type":"zelda","title":"塞尔达传说：旷野之息","platform":"Nintendo Switch","releaseAt":1488470400}]}""")
     println(jsonStr)
   }
 
   @Test
   fun testFromJson() {
-    val jsonStr = """{"games":[{"game":"elden-ring","title":"艾尔登法环","platforms":["PlayStation","Xbox","PC"],"releaseAt":"2022-02-25"},{"game":"zelda","title":"塞尔达传说：旷野之息","platform":"Nintendo Switch","releaseAt":1488470400}]}"""
+    val jsonStr = """{"games":[{"type":"elden-ring","title":"艾尔登法环","platforms":["PlayStation","Xbox","PC"],"releaseAt":"2022-02-25"},{"type":"zelda","title":"塞尔达传说：旷野之息","platform":"Nintendo Switch","releaseAt":1488470400}]}"""
     val dto = adapter.fromJson(jsonStr)!!
     dto.games.forEach{
       when(it){
